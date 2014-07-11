@@ -1,0 +1,51 @@
+set shell=/bin/sh
+
+call janus#disable_plugin('nerdtree')
+
+let mapleader = ","
+
+set wildignore+=*/tmp/*,*/public/*,*/node_modules/*
+
+" Open/Create related spec/file
+function! s:CreateRelated()
+  let related = s:GetRelatedFile(expand('%'))
+  call s:Open(related)
+endfunction
+
+" Return the related filename
+function! s:GetRelatedFile(file)
+  if match(a:file, '_spec\.rb$') != -1
+    return substitute(substitute(a:file, "_spec.rb$", ".rb", ""), '^spec/', 'app/', '')
+  else
+    return substitute(substitute(a:file, ".rb$", "_spec.rb", ""), '^app/', 'spec/', '')
+  endif
+endfunction
+
+" Open the related file in a vsplit
+function! s:Open(file)
+  exec('vsplit ' . a:file)
+endfunction
+
+" Register a new command `AC` for open/create a related file
+command! AC :call <SID>CreateRelated()
+" autocmd FileType ruby compiler ruby
+set encoding=utf-8
+
+let g:airline_powerline_fonts = 1
+
+" Removes trailing spaces
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+nnoremap <silent> <Leader>e :call TrimWhiteSpace()<CR>
+
+autocmd FileWritePre    * :call TrimWhiteSpace()
+autocmd FileAppendPre   * :call TrimWhiteSpace()
+autocmd FilterWritePre  * :call TrimWhiteSpace()
+autocmd BufWritePre     * :call TrimWhiteSpace()
+
+set textwidth=80
+set colorcolumn=+1
+
+let g:syntastic_ruby_checkers=['rubocop']

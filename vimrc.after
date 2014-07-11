@@ -1,0 +1,5 @@
+set guifont=Monaco:h12
+highlight SignColumn guibg=#2a343a
+let g:gitgutter_sign_column_always = 1
+color grb4
+hi ColorColumn guibg=#000000 ctermbg=0
