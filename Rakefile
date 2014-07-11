@@ -35,6 +35,23 @@ task :install do
       link_file(file)
     end
   end
+  [
+    ['vim-gitgutter', 'https://github.com/airblade/vim-gitgutter'],
+    ['vim-airline', 'https://github.com/bling/vim-airline'],
+    ['vim-bundler', 'https://github.com/tpope/vim-bundler'],
+    ['vim-rake', 'https://github.com/tpope/vim-rake'],
+    ['vim-unimpaired', 'https://github.com/tpope/vim-unimpaired']
+  ].each do |name, git|
+    install_vim_package name, git
+  end
+end
+
+def install_vim_package(name, git_repo)
+  if File.exist?(File.join(ENV['HOME'], ".janus", name))
+    puts "Escape #{name}"
+  else
+    system %Q{git clone #{git_repo} "$HOME/.janus/#{name}"}
+  end
 end
 
 def replace_file(file)
