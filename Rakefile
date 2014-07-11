@@ -8,7 +8,7 @@ task :install do
   switch_to_zsh
   replace_all = false
   files = Dir['*'] - %w[Rakefile README.rdoc LICENSE oh-my-zsh]
-  files << "oh-my-zsh/custom/plugins/rbates"
+  files << "oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
   files << "oh-my-zsh/custom/pure.zsh-theme"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
@@ -93,7 +93,7 @@ end
 
 def install_janus
   if File.exist?(File.join(ENV['HOME'], ".vim"))
-    puts "found ~/.oh-my-zsh"
+    puts "found ~/.vim"
   else
     print "install janus? [ynq] "
     case $stdin.gets.chomp
