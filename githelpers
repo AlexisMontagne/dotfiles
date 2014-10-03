@@ -61,6 +61,6 @@ pretty_git_log() {
 
 git_clean_branch() {
   git branch --merged |
-    grep feature/ |
+    grep feature |
     xargs git branch -d
 }

@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="pure"
-plugins=(aws brew git ruby zeus rails bundler gem knife pip python rvm git-flow zsh-syntax-highlighting)
+plugins=(brew git ruby zeus rails bundler gem knife pip python rvm git-flow zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -17,6 +17,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 # alias cat="pygmentize -f terminal256 -O style=native -g"
 export CDPATH=$CDPATH:~:~/code:~/upfluence:~/Sites
 export LANG=en_US.UTF-8
+
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # eval "$(hub alias -s)"
@@ -26,4 +27,13 @@ export GOPATH=~/code
 if [ -f $HOME/.credentialsrc ];
 then
   source $HOME/.credentialsrc
+fi
+
+function docker_env {
+  export DOCKER_HOST=tcp://`boot2docker ip 2>/dev/null`:2375
+}
+
+if [ boot2docker ip 2>/dev/null != "" ];
+then
+  docker_env
 fi
