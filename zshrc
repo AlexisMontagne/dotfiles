@@ -33,7 +33,7 @@ function docker_env {
   export DOCKER_HOST=tcp://`boot2docker ip 2>/dev/null`:2375
 }
 
-if [ boot2docker ip 2>/dev/null != "" ];
+if [ `boot2docker ip 2>/dev/null` != "" ];
 then
   docker_env
 fi
