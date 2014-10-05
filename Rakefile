@@ -42,7 +42,8 @@ task :install do
     ['vim-airline', 'https://github.com/bling/vim-airline'],
     ['vim-bundler', 'https://github.com/tpope/vim-bundler'],
     ['vim-rake', 'https://github.com/tpope/vim-rake'],
-    ['vim-unimpaired', 'https://github.com/tpope/vim-unimpaired']
+    ['vim-unimpaired', 'https://github.com/tpope/vim-unimpaired'],
+    ['vim-systemd', 'https://github.com/darvelo/vim-systemd']
   ].each do |name, git|
     install_vim_package name, git
   end
