@@ -62,6 +62,9 @@ prompt_pure_preexec() {
 prompt_pure_string_length() {
 	echo ${#${(S%%)1//(\%([KF1]|)\{*\}|\%[Bbkf])}}
 }
+pyenv_prompt_info() {
+  echo "(python-`cat ~/.pyenv/version`)"
+}
 
 prompt_pure_precmd() {
 	# shows the full path in the title
@@ -70,7 +73,7 @@ prompt_pure_precmd() {
 	# git info
 	vcs_info
 
-	local prompt_pure_preprompt='\n%F{yellow}`rvm_prompt_info` %F{blue}%~%F{242}$vcs_info_msg_0_`prompt_pure_git_dirty` $prompt_pure_username%f %F{yellow}`prompt_pure_cmd_exec_time`%f'
+	local prompt_pure_preprompt='\n%F{green}`pyenv_prompt_info` %F{yellow}`rvm_prompt_info` %F{blue}%~%F{242}$vcs_info_msg_0_`prompt_pure_git_dirty` $prompt_pure_username%f %F{yellow}`prompt_pure_cmd_exec_time`%f'
 	print -P $prompt_pure_preprompt
 
 	# check async if there is anything to pull
