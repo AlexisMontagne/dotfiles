@@ -5,7 +5,7 @@ plugins=(brew git ruby zeus rails bundler gem knife pip python rvm git-flow zsh-
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=$GOPATH/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 export EDITOR=vi
 
@@ -21,7 +21,7 @@ export LANG=en_US.UTF-8
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # eval "$(hub alias -s)"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin:$GOPATH/bin" # Add RVM to PATH for scripting
 export GOPATH=~/code
 
 if [ -f $HOME/.credentialsrc ];
