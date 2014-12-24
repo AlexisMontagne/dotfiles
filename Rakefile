@@ -43,7 +43,10 @@ task :install do
     ['vim-bundler', 'https://github.com/tpope/vim-bundler'],
     ['vim-rake', 'https://github.com/tpope/vim-rake'],
     ['vim-unimpaired', 'https://github.com/tpope/vim-unimpaired'],
-    ['vim-systemd', 'https://github.com/darvelo/vim-systemd']
+    ['vim-systemd', 'https://github.com/darvelo/vim-systemd'],
+    ['vim-thrift', 'https://github.com/johnmorrow/vim-thrift'],
+    ['Dockerfile.vim', 'https://github.com/ekalinin/Dockerfile.vim.git'],
+    ['redocommand', 'https://github.com/vim-scripts/redocommand.git']
   ].each do |name, git|
     install_vim_package name, git
   end
