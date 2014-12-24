@@ -30,7 +30,17 @@ then
 fi
 
 function docker_env {
-  export DOCKER_HOST=tcp://`boot2docker ip 2>/dev/null`:2375
+  export DOCKER_HOST=tcp://192.168.59.103:2376
+  export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
+  export DOCKER_TLS_VERIFY=1
+}
+
+function flush_docker_zombies {
+  docker ps -a -q | xargs docker kill | xargs docker rm
+}
+
+function flush_docker_untagged_images {
+  docker images -f dangling=true -q | xargs docker rmi
 }
 
 if [[ `boot2docker ip 2>/dev/null` != "" ]];
