@@ -38,6 +38,7 @@ task :install do
     end
   end
   [
+    ['vim-go', 'https://github.com/fatih/vim-go'],
     ['vim-gitgutter', 'https://github.com/airblade/vim-gitgutter'],
     ['vim-airline', 'https://github.com/bling/vim-airline'],
     ['vim-bundler', 'https://github.com/tpope/vim-bundler'],
@@ -51,6 +52,8 @@ task :install do
     install_vim_package name, git
   end
 end
+
+task default: :install
 
 def install_vim_package(name, git_repo)
   if File.exist?(File.join(ENV['HOME'], ".janus", name))
