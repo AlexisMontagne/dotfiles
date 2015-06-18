@@ -5,7 +5,7 @@ plugins=(brew git ruby zeus rails bundler gem knife pip python rvm git-flow zsh-
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
 
 export EDITOR=vi
 
