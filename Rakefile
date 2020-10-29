@@ -47,7 +47,8 @@ task :install do
     ['vim-systemd', 'https://github.com/darvelo/vim-systemd'],
     ['vim-thrift', 'https://github.com/johnmorrow/vim-thrift'],
     ['Dockerfile.vim', 'https://github.com/ekalinin/Dockerfile.vim.git'],
-    ['redocommand', 'https://github.com/vim-scripts/redocommand.git']
+    ['redocommand', 'https://github.com/vim-scripts/redocommand.git'],
+    ['apiblueprint.vim', 'https://github.com/kylef/apiblueprint.vim.git']
   ].each do |name, git|
     install_vim_package name, git
   end
