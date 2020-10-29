@@ -1,6 +1,9 @@
 [user]
 	name = Alexis Montagne
 	email = alexis.montagne@gmail.com
+  signingkey = A0BCA28C
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [push]
   default = simple
 [diff]
@@ -45,6 +48,7 @@
     l = "!. ~/.githelpers && pretty_git_log"
     la = !git l --all
     cb = "!. ~/.githelpers && git_clean_branch"
+	up = pull --rebase --autostash
 [merge]
   tool = vimdiff
 [github]
@@ -53,3 +57,7 @@
 	editor = /usr/bin/vim
 [git-up "bundler"]
 	check = true
+[web]
+	browser = open
+[commit]
+	gpgsign = true
