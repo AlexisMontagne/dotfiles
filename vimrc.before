@@ -4,7 +4,7 @@ call janus#disable_plugin('nerdtree')
 
 let mapleader = ","
 
-set wildignore+=*/tmp/*,*/public/*,*/node_modules/*
+set wildignore+=*/tmp/*,public/*,*/node_modules/*
 
 " Open/Create related spec/file
 function! s:CreateRelated()
@@ -15,9 +15,9 @@ endfunction
 " Return the related filename
 function! s:GetRelatedFile(file)
   if match(a:file, '_spec\.rb$') != -1
-    return substitute(substitute(a:file, "_spec.rb$", ".rb", ""), '^spec/', 'app/', '')
+    return substitute(substitute(a:file, "_spec.rb$", ".rb", ""), '^spec/', 'lib/', '')
   else
-    return substitute(substitute(a:file, ".rb$", "_spec.rb", ""), '^app/', 'spec/', '')
+    return substitute(substitute(a:file, ".rb$", "_spec.rb", ""), '^lib/', 'spec/', '')
   endif
 endfunction
 
@@ -49,3 +49,9 @@ set textwidth=80
 set colorcolumn=+1
 
 let g:syntastic_ruby_checkers=['rubocop']
+let g:syntastic_go_checkers = ['go', 'golangci_lint']
+let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_open = 0
+let g:go_fmt_fail_silently = 0
+let g:go_imports_autosave = 0
+let g:fugitive_git_command = 'hub'
